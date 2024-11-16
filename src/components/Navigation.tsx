@@ -25,7 +25,7 @@ const routes = [
     },
     {
         lable: "Members",
-        href: '',
+        href: '/members',
         icon: UsersIcon,
         activeIcon: UsersIcon
     },
@@ -37,9 +37,9 @@ export const Navigation = () => {
             {
                 routes.map((item) => {
                     const isActive = false
-                    const Icon = item.icon
+                    const Icon = isActive ? item.activeIcon : item.icon;
                     return (
-                        <Link key={item.href} href={item.href} >
+                        <Link key={item.href} href={item.href} className='mb-4' >
                             <div className={cn(
                                 "flex items-center gap-2.5 rounded-md font-medium hover:text-primary transition text-neutral-500",
                                 isActive && "bg-white shadow-sm hover:opacity-100 text-primary"
@@ -52,6 +52,6 @@ export const Navigation = () => {
                 })
             }
         </ul>
-    )
-}
+    );
+};
 
